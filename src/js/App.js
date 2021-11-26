@@ -10,10 +10,9 @@ function App() {
 	return (
         <Container>
             <h1>UI Kit</h1>
-            <Link href="https://react-tutorial.app">Shop online</Link>
-            <Button type="button">Button</Button>
-            <Button type="button" title="Disabled button" disabled={true}>Disabled button</Button>
-            <Input placeholder="Enter your email" type="email" name="email" />
+            <Link href="https://react-tutorial.app">React Tutorial</Link>
+            <Button disabled={true}>Login</Button>
+            <Input placeholder="Full Name" name="full_name" />
         </Container>
 	);
 }

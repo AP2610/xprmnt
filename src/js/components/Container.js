@@ -1,7 +1,9 @@
 import React from 'react';
+import clsx from 'clsx';
 
 export default function Container(props) {
-    const {children} = props;
+    const { children, className, ...rest} = props;
+    const classes = clsx('ui-container', className);
 
-    return <div className="ui-container">{children}</div>;
+    return <div className={classes} {...rest}>{props.children}</div>;
 }
