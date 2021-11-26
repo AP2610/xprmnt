@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Button(props) {
-    const { type, disabled, children } = props;
+    const { children, ...rest } = props;
 
-    return <button className="ui-button" type={type} disabled={disabled}>{children}</button>
+    return <button className="ui-button" {...rest}>{children}</button>
 }
