@@ -2,13 +2,14 @@ import '../scss/App.scss';
 import React, {useState} from 'react';
 import StoreFront from './components/Storefront';
 import Button from './components/Button';
+import Heading from './components/Heading';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
 
     if (!loggedIn) {
         return (<>
-            <h2>Please login</h2>
+            <Heading type="h2">Please login</Heading>
             <Button className="btn btn-primary" onClick={() => setLoggedIn(true)}>Login</Button>
         </>);
     }

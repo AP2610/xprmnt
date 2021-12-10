@@ -1,10 +1,10 @@
 import React from 'react';
+import clsx from 'clsx';
 
 export default function Heading(props) {
-    const { children, type } = props;
-    const headingElement = React.createElement(type, { className: 'ui-heading' }, children);
-    
+    const { children, type, className, isStyleguideHeading } = props;
+    const classes = clsx({ 'ui-heading': isStyleguideHeading }, className)
+    const headingElement = React.createElement(type, { className: classes }, children);
 
-    console.log('headingElement: ', headingElement);
     return headingElement;
 }
