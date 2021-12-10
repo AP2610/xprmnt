@@ -1,22 +1,22 @@
 import '../scss/App.scss';
-
-// Components
-import Link from './components/Link';
+import React, {useState} from 'react';
+import StoreFront from './components/Storefront';
 import Button from './components/Button';
-import Container from './components/Container';
-import Input from './components/Input';
-import Heading from './components/Heading';
 
 function App() {
-	return (
-        <Container>
-            <h1>UI Kit</h1>
-            <Link href="https://react-tutorial.app">React Tutorial</Link>
-            <Button disabled={true}>Login</Button>
-            <Input placeholder="Full Name" name="full_name" />
-            <Heading type="h2">Please login</Heading>
-        </Container>
-	);
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    if (!loggedIn) {
+        return (<>
+            <h2>Please login</h2>
+            <Button className="btn btn-primary" onClick={() => setLoggedIn(true)}>Login</Button>
+        </>);
+    }
+
+    return (<>
+        <StoreFront />
+        <Button className="btn btn-outline" onClick={() => setLoggedIn(false)}>Logout</Button>
+    </>);
 }
 
 export default App;
