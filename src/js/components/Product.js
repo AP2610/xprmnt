@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import Heading from './Heading';
+import Button from './Button';
 
 export default function Product(props) {
     const [amount, setAmount] = useState(0);
@@ -9,15 +11,15 @@ export default function Product(props) {
     const handleDecrementClick = () => { if (amount > 0) setAmount(amount - 1) };
 
     return <div className='product'>
-        <img src={image} width='50' alt={description} />
+        {image && <img src={image} width='50' alt={description} />}
         <div className='product-info'>
-            <h2>{name}</h2>
+            <Heading type="h2">{name}</Heading>
             <p>{description}</p>
         </div>
         <div className='product-buttons'>
-            <button className='product-sub' disabled={amount === 0} onClick={handleDecrementClick}>-</button>
-            <h3 className='product-count'>{amount > 0 ? amount : ''}</h3>
-            <button className='product-add' onClick={handleIncrementClick}>+</button>
+            <Button className='product-sub' disabled={amount === 0} onClick={handleDecrementClick}>-</Button>
+            <Heading type="h3" className='product-count'>{amount > 0 ? amount : ''}</Heading>
+            <Button className='product-add' onClick={handleIncrementClick}>+</Button>
         </div>
     </div>
 }
