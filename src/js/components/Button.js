@@ -1,6 +1,11 @@
-import React from 'react';
 import clsx from 'clsx';
 
+/**
+ * @function Button
+ * @description Renders the Button component.
+ * @param {Object} props - Props received from the parent component.
+ * @returns {JSX} The JSX for the Button component.
+ */
 export default function Button(props) {
     const {children, className, isStyleguideButton, ...rest} = props;
 

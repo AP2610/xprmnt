@@ -1,0 +1,88 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "import/no-unresolved": "off",
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": 1
+            }
+        ],
+        "func-names": "error",
+        "require-jsdoc": "error",
+        "valid-jsdoc": [
+            "error",
+            {
+                "preferType": {
+                    "Boolean": "boolean",
+                    "Number": "number",
+                    "object": "Object",
+                    "String": "string"
+                },
+                "requireReturn": false
+            }
+        ],
+        "vars-on-top": "error",
+        "global-require": "off",
+        "max-len": "off",
+        "no-shadow": [
+            "error",
+            {
+                "allow": [
+                    "err",
+                    "callback"
+                ]
+            }
+        ],
+        "no-console": "off",
+        "no-param-reassign": [
+            2,
+            {
+                "props": false
+            }
+        ],
+        "no-plusplus": "off",
+        "object-curly-newline": [
+            "off",
+            {
+                "ObjectExpression": {
+                    "multiline": true
+                },
+                "ObjectPattern": {
+                    "multiline": true
+                },
+                "ImportDeclaration": "never",
+                "ExportDeclaration": "always"
+            }
+        ],
+        "prefer-const": "error",
+        "prefer-template": "error",
+        "strict": "off",
+        "template-curly-spacing": [
+            "error",
+            "never"
+        ],
+        "wrap-iife": "off",
+        "react/prop-types": 0
+    }
+}
