@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
-import Product from './Product';
-import Input from './Input';
-import Button from './Button';
+import { useState } from 'react';
+import AddProductForm from './AddProductForm';
+import Heading from './Heading';
+import ProductList from './ProductList';
 
-function handleValidation(name, description, setValidationMessage) {
+/**
+ * @function handleProductFormValidation
+ * @description Processes validation rules for the add product form.
+ * @param {string} name - The name state of the product form.
+ * @param {*} description - The description state of the product form.
+ * @param {*} setValidationMessage - Function passed to set the correct validation message.
+ * @returns {Boolean} - Whether the form is valid or not.
+ */
+function handleProductFormValidation(name, description, setValidationMessage) {
     if (!name && !description) {
         setValidationMessage('Please enter a product name and description.');
         return false;
@@ -22,17 +30,28 @@ function handleValidation(name, description, setValidationMessage) {
     return true;
 }
 
+/**
+ * @function StoreFront
+ * @description Renders the storefront component with the product form and the product list.
+ * @returns {JSX} - The JSX for the storefront component.
+ */
 export default function StoreFront() {
     const [products, setProducts] = useState([]);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
 
-    function handleFormSubmit(event) {
+    /**
+     * @function handleFormSubmit
+     * @description Handles submission of the product form.
+     * @param {Event} event - The add product submit event.
+     * @returns {void}
+     */
+    const handleFormSubmit = (event) => {
         event.preventDefault();
         
         // Validation
-        const isValid = handleValidation(name, description, setValidationMessage);
+        const isValid = handleProductFormValidation(name, description, setValidationMessage);
         if (!isValid) return;
 
         // Set new products
@@ -48,54 +67,31 @@ export default function StoreFront() {
         setValidationMessage('');
     }
 
-    function handleDeleteClick({id}) {
-        setProducts(products.filter(product => product.id !== id));
-    }
+    /**
+     * @function handleDeleteClick
+     * @description Deletes the product which matches the ID. Removes it from products state array.
+     * @param {string} product.id - The ID of the product to delete.
+     * @returns {void}
+     */
+    const handleDeleteClick = ({id}) => setProducts(products.filter(product => product.id !== id));
 
-    const productsList = products.map(product => {
-        return <li key={product.id}>
-            <Product details={product} />
-            <Button onClick={() => handleDeleteClick(product)} className="btn-outline btn-delete">Delete</Button>
-        </li>
-    });
+    return (
+        <>
+            {/* Render Add product form */}
+            <AddProductForm 
+                onFormSubmit={handleFormSubmit}
+                productName={name}
+                onNameChange={e => setName(e.target.value)}
+                productDescription={description}
+                onDescriptionChange={e => setDescription(e.target.value)}
+                validationMessage={validationMessage}
+            />
 
-    return <>
-        <form onSubmit={handleFormSubmit}>
-            <div className="form-group">
-                <label htmlFor="name">Product Name</label>
-                <Input 
-                    id="name"
-                    type="text" 
-                    placeholder="Enter the name" 
-                    className="textfield" 
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                />
-            </div>
+            {/* Render products heading */}
+            {products.length === 0 && <Heading type="h4">Add your first product</Heading>}
 
-            <div className="form-group">
-                <label htmlFor="description">Product Description</label>
-                <Input 
-                    id="description"
-                    type="text" 
-                    placeholder="Enter the description" 
-                    className="textfield" 
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}
-                />
-            </div>
-
-            <div className="form-footer">
-                {validationMessage && <div className="validation-message">{validationMessage}</div>}
-                <Input type="submit" className="btn btn-primary" value="Add product" />
-            </div>
-        </form>
-
-        {/* Render products */}
-        {products.length === 0 && <div><p>Add your first product</p></div>}
-
-        <ul className="store-front">
-            {productsList}
-        </ul>
-    </>;
+            {/* Render products list */}
+            <ProductList products={products} onDeleteClick={handleDeleteClick} />
+        </>
+    );
 }
