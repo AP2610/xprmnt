@@ -8,7 +8,6 @@ import Button from './Button';
  * @returns {JSX} The JSX for the product list.
  */
 export default function ProductList(props) {
-    console.log('props: ', props);
     const { products, onDeleteClick } = props;
 
     const productsList = products.map(product => {

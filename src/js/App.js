@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import StoreFront from './components/Storefront';
 import Button from './components/Button';
 import Heading from './components/Heading';
+import Map from './components/Map';
 
 /**
  * @function App
@@ -16,6 +17,7 @@ function App() {
         return (<>
             <Heading type="h2">Please login</Heading>
             <Button className="btn btn-primary" onClick={() => setLoggedIn(true)}>Login</Button>
+            <Map />
         </>);
     }
 
