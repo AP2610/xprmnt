@@ -4,6 +4,11 @@ import StoreFront from './components/Storefront';
 import Button from './components/Button';
 import Heading from './components/Heading';
 
+/**
+ * @function App
+ * @description The main component of this Application.
+ * @returns {JSX} - The JSX for the component.
+ */
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
 
