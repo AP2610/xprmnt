@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AddProductForm from './AddProductForm';
 import Heading from './Heading';
 import ProductList from './ProductList';
@@ -7,8 +7,8 @@ import ProductList from './ProductList';
  * @function handleProductFormValidation
  * @description Processes validation rules for the add product form.
  * @param {string} name - The name state of the product form.
- * @param {*} description - The description state of the product form.
- * @param {*} setValidationMessage - Function passed to set the correct validation message.
+ * @param {string} description - The description state of the product form.
+ * @param {Function} setValidationMessage - Function passed to set the correct validation message.
  * @returns {Boolean} - Whether the form is valid or not.
  */
 function handleProductFormValidation(name, description, setValidationMessage) {
@@ -36,10 +36,20 @@ function handleProductFormValidation(name, description, setValidationMessage) {
  * @returns {JSX} - The JSX for the storefront component.
  */
 export default function StoreFront() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(() => JSON.parse(localStorage.getItem('products')) ?? []); // Retrieve products from local storage, default to empty array.
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
+
+    // Update localStorage when a new product is added
+    useEffect(() => localStorage.setItem('products', JSON.stringify(products)), [products])
+
+    // Update the page title based on the number of products
+    useEffect(() => {
+        let title = 'No products';
+        if (products.length) title = `${products.length} product${products.length !== 1 ? 's' : ''}`
+        document.title = title;
+    },  [products])
 
     /**
      * @function handleFormSubmit
