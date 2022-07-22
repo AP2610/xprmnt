@@ -91,65 +91,71 @@ form {
 .product {
     background-color: #ececec;
     border-radius: 4px;
-    display: grid;
+    display: flex;
     min-height: 110px;
     grid-template-columns: 1fr auto;
     align-items: center;
-}
-.product-info {
-    padding: 10px 10px;
-}
 
-.product-info h2 {
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 20px;
-    font-weight: normal;
-}
+    img {
+        padding: 15px 10px 15px 20px;
+    }
 
-.product-count {
-    margin: 0;
-    font-weight: normal;
-    font-size: 16px;
-}
+    &-info {
+        flex-grow: 1;
+        padding: 10px 10px;
 
-.product-info p {
-    font-size: 14px;
-    margin-top: 10px;
-}
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 20px;
+            font-weight: normal;
+        }
 
-.product-buttons {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-}
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
 
-.product-sub,
-.product-add {
-    box-shadow: none;
-    border: 0;
-    transition: opacity 180ms ease-out;
-    padding: 5px;
-    font-size: 16px;
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-}
+    &-count {
+        margin: 0;
+        font-weight: normal;
+        font-size: 16px;
+    }
 
-.product-sub {
-    border-radius: 0 3px 0 0;
-    background-color: var(--secondary);
-}
+    &-buttons {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
 
-.product-add {
-    background-color: var(--primary);
-    color: white;
-    border-radius: 0 0 3px 0;
-}
+        button:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
 
-.product-buttons button:disabled {
-    opacity: 0.5;
-    cursor: default;
+    &-sub,
+    &-add {
+        box-shadow: none;
+        border: 0;
+        transition: opacity 180ms ease-out;
+        padding: 5px;
+        font-size: 16px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+    }
+
+    &-sub {
+        border-radius: 0 3px 0 0;
+        background-color: var(--secondary);
+    }
+
+    &-add {
+        background-color: var(--primary);
+        color: white;
+        border-radius: 0 0 3px 0;
+    }
 }
