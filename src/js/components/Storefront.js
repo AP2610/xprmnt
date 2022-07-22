@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import AddProductForm from './AddProductForm';
 import Heading from './Heading';
 import ProductList from './ProductList';
+import Loader from './Loader';
 
 /**
  * @function handleProductFormValidation
@@ -36,13 +37,30 @@ function handleProductFormValidation(name, description, setValidationMessage) {
  * @returns {JSX} - The JSX for the storefront component.
  */
 export default function StoreFront() {
-    const [products, setProducts] = useState(() => JSON.parse(localStorage.getItem('products')) ?? []); // Retrieve products from local storage, default to empty array.
+    const [products, setProducts] = useState([]);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
-    // Update localStorage when a new product is added
-    useEffect(() => localStorage.setItem('products', JSON.stringify(products)), [products])
+    const URL = 'https://react-tutorial-demo.firebaseio.com/products.json';
+
+    // Fetch products
+    useEffect(() => {
+        // Need an IFFE to use async/await
+        (async () => {
+            try {
+                const response = await fetch(URL);
+                const productData = await response.json();
+                if (productData) setProducts(productData);
+            } catch(error) {
+                console.log('There was an error: ', error);
+            } finally {
+                setIsLoading(false);
+            }
+        })()
+    }, [])
+
 
     // Update the page title based on the number of products
     useEffect(() => {
@@ -66,7 +84,7 @@ export default function StoreFront() {
 
         // Set new products
         setProducts([...products, {
-            id: `000-123-${products.length}`,
+            id: products.length,
             name,
             description
         }]);
@@ -84,6 +102,11 @@ export default function StoreFront() {
      * @returns {void}
      */
     const handleDeleteClick = ({id}) => setProducts(products.filter(product => product.id !== id));
+
+    // Show a loader when the request is still loading.
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <>
