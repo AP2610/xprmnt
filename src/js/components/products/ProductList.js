@@ -1,5 +1,5 @@
 import Product from './Product';
-import Button from './Button';
+import Button from '../ui-elements/Button';
 
 /**
  * @function AddProductForm

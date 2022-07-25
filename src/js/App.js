@@ -1,8 +1,8 @@
 import '../scss/App.scss';
 import React, {useState} from 'react';
 import StoreFront from './components/Storefront';
-import Button from './components/Button';
-import Heading from './components/Heading';
+import Button from './components/ui-elements/Button';
+import Heading from './components/ui-elements/Heading';
 // import Map from './components/Map';
 
 /**

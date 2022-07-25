@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import AddProductForm from './AddProductForm';
-import Heading from './Heading';
-import ProductList from './ProductList';
-import Loader from './Loader';
+import AddProductForm from './products/AddProductForm';
+import Heading from './ui-elements/Heading';
+import ProductList from './products/ProductList';
+import Loader from './ui-elements/Loader';
 
 /**
  * @function handleProductFormValidation

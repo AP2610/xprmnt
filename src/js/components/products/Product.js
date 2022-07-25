@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import Heading from './Heading';
-import Button from './Button';
+import Heading from '../ui-elements/Heading';
+import Button from '../ui-elements/Button';
 
 /**
  * @function Product
