@@ -1,6 +1,7 @@
-import {useState} from 'react';
 import Heading from '../ui-elements/Heading';
 import Button from '../ui-elements/Button';
+
+import useCounter from '../../hooks/useCounter';
 
 /**
  * @function Product
@@ -9,12 +10,8 @@ import Button from '../ui-elements/Button';
  * @returns {JSX} The JSX for the PRoduct component.
  */
 export default function Product(props) {
-    const [amount, setAmount] = useState(0);
     const { details: { name, description, image } } = props;
-
-    const handleIncrementClick = () => setAmount(amount + 1);
-
-    const handleDecrementClick = () => { if (amount > 0) setAmount(amount - 1) };
+    const { count, increment, decrement } = useCounter();
 
     return (
         <div className='product'>
@@ -25,9 +22,9 @@ export default function Product(props) {
             </div>
 
             <div className='product-buttons'>
-                <Button className='product-sub' disabled={amount === 0} onClick={handleDecrementClick}>-</Button>
-                <Heading type="h3" className='product-count'>{amount > 0 ? amount : ''}</Heading>
-                <Button className='product-add' onClick={handleIncrementClick}>+</Button>
+                <Button className='product-sub' disabled={count === 0} onClick={decrement}>-</Button>
+                <Heading type="h3" className='product-count'>{count > 0 ? count : ''}</Heading>
+                <Button className='product-add' onClick={increment}>+</Button>
             </div>
         </div>
     );
