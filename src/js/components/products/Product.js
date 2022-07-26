@@ -1,7 +1,10 @@
+// Hooks
+import useCounter from '../../hooks/useCounter';
+
+// Components
 import Heading from '../ui-elements/Heading';
 import Button from '../ui-elements/Button';
 
-import useCounter from '../../hooks/useCounter';
 
 /**
  * @function Product

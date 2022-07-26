@@ -1,4 +1,8 @@
+// Hooks
 import { useState, useEffect } from 'react';
+import useFetch from '../hooks/useFetch';
+
+// Components
 import AddProductForm from './products/AddProductForm';
 import Heading from './ui-elements/Heading';
 import ProductList from './products/ProductList';
@@ -41,33 +45,24 @@ export default function StoreFront() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
-
-    const URL = 'https://react-tutorial-demo.firebaseio.com/products.json';
-
-    // Fetch products
+    
+    // Initialise useEffect with post and get baseUrls.
+    const {request: getRequest, isLoading: getIsLoading} = useFetch('https://react-tutorial-demo.firebaseio.com/'); // GET
+    const {request: postRequest, isLoading: postIsLoading} = useFetch('https://api.learnjavascript.online/demo/react/admin/'); // POST
+    
+    // Fetch products (GET).
     useEffect(() => {
-        // Need an IFFE to use async/await
-        (async () => {
-            try {
-                const response = await fetch(URL);
-                const productData = await response.json();
-                if (productData) setProducts(productData);
-            } catch(error) {
-                console.log('There was an error: ', error);
-            } finally {
-                setIsLoading(false);
-            }
-        })()
-    }, [])
+        getRequest('products.json')
+            .then(data => setProducts(data))
+            .catch(error => console.log(error));
+    }, []);
 
-
-    // Update the page title based on the number of products
+    // Update the page title based on the number of products.
     useEffect(() => {
         let title = 'No products';
         if (products.length) title = `${products.length} product${products.length !== 1 ? 's' : ''}`
         document.title = title;
-    },  [products])
+    },  [products]);
 
     /**
      * @function handleFormSubmit
@@ -75,24 +70,32 @@ export default function StoreFront() {
      * @param {Event} event - The add product submit event.
      * @returns {void}
      */
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = event => {
         event.preventDefault();
         
         // Validation
         const isValid = handleProductFormValidation(name, description, setValidationMessage);
         if (!isValid) return;
 
-        // Set new products
-        setProducts([...products, {
-            id: products.length,
-            name,
-            description
-        }]);
+        // Fetch products (POST)
+        postRequest('products', {name, description})
+            .then(data => {
+                console.log('data: ', data);
+                if (data) {
+                    // Set new products
+                    setProducts([...products, {
+                        id: `000-123-${products.length}`,
+                        name,
+                        description
+                    }]);
 
-        // Reset the form
-        setName('');
-        setDescription('');
-        setValidationMessage('');
+                    // Reset the form
+                    setName('');
+                    setDescription('');
+                    setValidationMessage('');
+                }
+            })
+            .catch(error => console.log(error));
     }
 
     /**
@@ -104,7 +107,7 @@ export default function StoreFront() {
     const handleDeleteClick = ({id}) => setProducts(products.filter(product => product.id !== id));
 
     // Show a loader when the request is still loading.
-    if (isLoading) {
+    if (getIsLoading || postIsLoading) {
         return <Loader />;
     }
 
