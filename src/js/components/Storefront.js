@@ -1,6 +1,9 @@
 // Hooks
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import useFetch from '../hooks/useFetch';
+
+// Context
+import { AppContext } from '../context/AppContext';
 
 // Components
 import AddProductForm from './products/AddProductForm';
@@ -45,6 +48,7 @@ export default function StoreFront() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
+    const appContext = useContext(AppContext);
     
     // Initialise useEffect with post and get baseUrls.
     const {request: getRequest, isLoading: getIsLoading} = useFetch('https://react-tutorial-demo.firebaseio.com/'); // GET
@@ -55,7 +59,7 @@ export default function StoreFront() {
         getRequest('products.json')
             .then(data => setProducts(data))
             .catch(error => console.log(error));
-    }, []);
+    }, []); // eslint-disable-line
 
     // Update the page title based on the number of products.
     useEffect(() => {
@@ -113,6 +117,8 @@ export default function StoreFront() {
 
     return (
         <>
+            <Heading style={{ color: '#fff' }} type="h3">Shopping in {appContext.currency} using the {appContext.theme} theme.</Heading>
+
             {/* Render Add product form */}
             <AddProductForm 
                 onFormSubmit={handleFormSubmit}
