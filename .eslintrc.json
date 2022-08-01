@@ -29,19 +29,8 @@
             }
         ],
         "func-names": "error",
-        "require-jsdoc": "error",
-        "valid-jsdoc": [
-            "error",
-            {
-                "preferType": {
-                    "Boolean": "boolean",
-                    "Number": "number",
-                    "object": "Object",
-                    "String": "string"
-                },
-                "requireReturn": false
-            }
-        ],
+        "require-jsdoc": 0,
+        "valid-jsdoc": 0,
         "vars-on-top": "error",
         "global-require": "off",
         "max-len": "off",
