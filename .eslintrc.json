@@ -3,27 +3,20 @@
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
         "babelOptions": {
-            "presets": [
-                "@babel/preset-react"
-            ]
+            "presets": ["@babel/preset-react"]
         },
         "ecmaVersion": 12,
         "sourceType": "module",
-        "requireConfigFile": false,
+        "requireConfigFile": false
     },
-    "plugins": [
-        "react"
-    ],
+    "plugins": ["react"],
     "rules": {
         "react/react-in-jsx-scope": "off",
         "import/no-unresolved": "off",
@@ -55,10 +48,7 @@
         "no-shadow": [
             "error",
             {
-                "allow": [
-                    "err",
-                    "callback"
-                ]
+                "allow": ["err", "callback"]
             }
         ],
         "no-console": "off",
@@ -85,10 +75,7 @@
         "prefer-const": "error",
         "prefer-template": "error",
         "strict": "off",
-        "template-curly-spacing": [
-            "error",
-            "never"
-        ],
+        "template-curly-spacing": ["error", "never"],
         "wrap-iife": "off",
         "react/prop-types": 0
     }
