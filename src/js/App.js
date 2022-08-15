@@ -4,7 +4,16 @@ import '../scss/App.scss';
 // Hooks
 
 // Components
-import Button from './components/ui-elements/Button';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navigation-bar/Navbar';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Products from './components/pages/Products';
+import Cart from './components/pages/Cart';
+import ProductDetails from './components/product/ProductDetails';
+
+// Context
+import AppProvider from './context/AppContext';
 
 /**
  * @function App
@@ -13,10 +22,21 @@ import Button from './components/ui-elements/Button';
  */
 function App() {
     return (
-        <div className="app row">
-            <Button disabled>Normal button</Button>
-            <Button outline>Outline button</Button>
-        </div>
+        <>
+            <Navbar />
+            <main>
+                <div className="container">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="about" element={<About />} />
+                        <Route path="products" element={<Products />} />
+                        <Route path="cart" element={<Cart />} />
+                        <Route path="products/:id/*" element={<ProductDetails />} />
+                    </Routes>
+                </div>
+            </main>
+            <footer>Footer goes here</footer>
+        </>
     );
 }
 
@@ -27,9 +47,11 @@ function App() {
  */
 function AppWrapper() {
     return (
-        <div className="container">
-            <App />
-        </div>
+        <AppProvider>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </AppProvider>
     );
 }
 

@@ -1,3 +1,19 @@
+.form h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.form h3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.form-section {
+    border-bottom: var(--neutral-4) solid 1px;
+    margin-bottom: 20px;
+}
+
 .label {
     display: block;
     font-weight: 500;

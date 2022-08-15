@@ -2,6 +2,13 @@
 @import './components/typography';
 @import './components/ui-kit/buttons';
 @import './components/ui-kit/forms';
+@import './components/navigation-bar';
+@import './components/tabs';
+@import './components/layouts';
+@import './components/products';
+@import './components/loader';
+@import './components/links';
+@import './components/utilities/border-radius';
 
 :root {
     --white: #fff;
@@ -31,4 +38,15 @@
 
 body {
     background-color: var(--neutral-5);
+    height: 100vh;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    main {
+        flex-grow: 1;
+    }
 }
