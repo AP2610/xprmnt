@@ -1,5 +1,5 @@
 // Components
-import Navbar from '../navigation/Navbar';
+import Header from '../header/Header';
 
 // Context
 import AppProvider from '../../common/context/AppContext';
@@ -10,7 +10,7 @@ export default function MainLayout(props) {
     return (
         <AppProvider>
             <div className="page-container">
-                <Navbar />
+                <Header />
 
                 <div className="content-container">
                     {children}
