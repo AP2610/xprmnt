@@ -49,7 +49,7 @@ export default function AppProvider(props) {
     const cartTotalValue = cart.reduce((total, currentProduct) => total + currentProduct.quantity * currentProduct.price, 0).toFixed(2);
 
     // Debugging
-    useEffect(() => console.log('AppContext-cart: ', cart), [cart]);
+    // useEffect(() => console.log('AppContext-cart: ', cart), [cart]);
 
     const value = {
         cart,

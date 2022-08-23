@@ -3,7 +3,7 @@ import clsx from 'clsx';
 export default function Button(props) {
     const {className, children, disabled, outline, ...rest} = props;
     const classes = clsx('btn', className, {
-        'btn-default': !outline,
+        'btn-default': !outline && !className.includes('link'),
         'btn-outline': outline,
         'disabled': disabled
     });

@@ -1,0 +1,13 @@
+@mixin navItem {
+    text-decoration: none;
+    font-weight: normal;
+    color: var(--primary-1);
+    display: inline-block;
+    text-align: center;
+    padding: 13px 20px;
+    min-width: 75px;
+
+    &.active {
+        font-weight: bold;
+    }
+}

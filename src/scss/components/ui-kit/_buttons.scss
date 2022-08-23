@@ -23,6 +23,17 @@
     border-radius: 10px;
 }
 
+.btn-link {
+    @include navItem;
+    background: none;
+    font-size: 16px;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+        color: var(--primary-2);
+    }
+}
+
 .btn-default,
 .btn-outline {
     &:hover {

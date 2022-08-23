@@ -1,4 +1,4 @@
-export default function About() {
+export default function AboutIndex() {
     return (
         <div className="about-layout">
             <div>

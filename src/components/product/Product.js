@@ -1,16 +1,15 @@
 // Components
 import Button from '../ui-elements/Button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 // Hooks
 import { useContext } from 'react';
 
 // Context
-import {AppContext} from '../../context/AppContext';
+import {AppContext} from '../../common/context/AppContext';
 
 export default function Product(props) {
     const appContext = useContext(AppContext);
-    console.log('appContext :', appContext);
     const { details: product } = props;
 
     const productQuantity = appContext.cart.find(cartProduct => cartProduct.id === product.id)?.quantity;
@@ -20,8 +19,8 @@ export default function Product(props) {
     return (
         <div className="product">
             <div className="product-image-container">
-                <Link to={`/products/${product.id}`}>
-                    <img width="100" height="100" className="product-image" alt={product?.title} src={product?.image}/>
+                <Link href={`products/${product.id}`}>
+                    <a><img width="100" height="100" className="product-image" alt={product?.title} src={product?.image}/></a>
                 </Link>
 
                 {productQuantity && 

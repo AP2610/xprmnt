@@ -2,9 +2,9 @@
 import { useContext } from 'react';
 
 // Context
-import { AppContext } from '../../context/AppContext';
+import { AppContext } from '../../common/context/AppContext';
 
-export default function Cart() {
+export default function CartIndex() {
     const { cart, cartTotalValue } = useContext(AppContext);
     const cartHasItems = cart.length;
 
