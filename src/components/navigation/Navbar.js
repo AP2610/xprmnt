@@ -31,7 +31,12 @@ export default function Navbar() {
                     if (item.name.toLowerCase() === 'categories') {
                         return {
                             ...item,
-                            subNav: subNavData
+                            subNav: data.map(dataItem => {
+                                return { 
+                                    name: dataItem, 
+                                    url: `/${item.name.toLowerCase()}/${dataItem.replace(/\s/, '-').replace(/[,.']/g, '')}` 
+                                }
+                            })
                         }
                     }
                     return item;
@@ -42,6 +47,8 @@ export default function Navbar() {
             .catch(error => console.log('Error fetching categories: ', error));
     }, []);
 
+    // useEffect(() => console.log('navigationItems: ', navigationItems), [navigationItems])
+
     const navigationLinks = navigationItems && navigationItems.map((item, index) => {
         return <NavItem key={index} navItem={item} cartQuantity={numberOfProducts} className="nav-item" />
     });
@@ -49,7 +56,7 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <Link href="/">
-                <a className="nav-logo">XPRMNT</a>
+                <a className="nav-logo fs-8">XPRMNT</a>
             </Link>
 
             <ul className="nav-list">

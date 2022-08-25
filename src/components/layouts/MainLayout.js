@@ -12,9 +12,9 @@ export default function MainLayout(props) {
             <div className="page-container">
                 <Header />
 
-                <div className="content-container">
+                <main className="content-container">
                     {children}
-                </div>
+                </main>
 
                 <footer>Footer goes here</footer>
             </div>
