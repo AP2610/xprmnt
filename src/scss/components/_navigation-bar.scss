@@ -1,17 +1,14 @@
 .navbar {
+    align-items: center;
     background-color: white;
     box-shadow: 0px 3px 7px 0px rgb(0 0 0 / 7%), 0px -3px 7px 0px rgb(0 0 0 / 7%);
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    z-index: 1;
+    padding: 0 $gutter;
 
     .nav-logo {
-        font-family: 'Rubik Maze', cursive;
-        font-size: 40px;
-        font-weight: 400;
+        @include logoFont;
         text-decoration: none;
-        padding-left: 20px;
         color: initial;
         transition: color .2s ease-in-out;
 
@@ -29,7 +26,6 @@
         list-style-type: none;
         margin: 0;
         overflow: hidden;
-        padding-right: 20px;
         text-align: center;
 
         .nav-item {
@@ -40,17 +36,16 @@
     .nav-cart {
         color: var(--white);
         text-align: center;
-        padding: 10px 25px;
+        padding: $gutter/2 $gutter;
     }
 }
 
 .nav-item {
     position: relative;
-    padding: 15px 0;
+    padding: $gutter 0;
 
     &:hover .sub-nav-list {
         display: block;
-        opacity: 1;
     }
 
     a {
@@ -70,11 +65,11 @@
         box-shadow: 0px 3px 7px 0px rgb(0 0 0 / 7%);
         display: none;
         list-style-type: none;
-        opacity: 0;
         padding-left: 0;
         position: fixed;
         text-align: left;
-        top: 73px;
+        top: 86px;
+        z-index: 100;
         
         .sub-nav-item {
             text-transform: capitalize;

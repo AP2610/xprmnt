@@ -1,6 +1,7 @@
 export default function AboutIndex() {
     return (
         <div className="about-layout">
+            <img src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_550/v1607770215/react-tutorial/supermarket/about.jpg" className="rounded" alt="" />
             <div>
                 <h1>About Us</h1>
                 <p>
@@ -10,7 +11,6 @@ export default function AboutIndex() {
                     <em>We use Stripe to process your payment.</em>
                 </p>
             </div>
-            <img src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_550/v1607770215/react-tutorial/supermarket/about.jpg" height="275" width="183" className="rounded" alt="" />
         </div>
     );
 }

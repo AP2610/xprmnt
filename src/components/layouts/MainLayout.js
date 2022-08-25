@@ -3,6 +3,7 @@ import Header from '../header/Header';
 
 // Context
 import AppProvider from '../../common/context/AppContext';
+import Footer from '../footer/Footer';
 
 export default function MainLayout(props) {
     const { children } = props;
@@ -16,7 +17,7 @@ export default function MainLayout(props) {
                     {children}
                 </main>
 
-                <footer>Footer goes here</footer>
+                <Footer />
             </div>
         </AppProvider>
     );

@@ -17,7 +17,7 @@ export default function Product(props) {
     const onProductDelete = () => appContext.handleProductDelete(product.id);
 
     return (
-        <div className="product">
+        <article className="product">
             <div className="product-image-container">
                 <Link href={`products/${product.id}`}>
                     <a><img width="100" height="100" className="product-image" alt={product?.title} src={product?.image}/></a>
@@ -44,6 +44,6 @@ export default function Product(props) {
 
                 <Button outline onClick={onProductAdd}>${product?.price.toFixed(2)}</Button>
             </div>
-        </div>
+        </article>
     );
 }

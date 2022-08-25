@@ -10,7 +10,7 @@ import Link from 'next/link';
  */
 export default function HomeIndex() {
     return (
-        <>
+        <section className="homepage">
             <div className="home-layout">
                 <div>
                     <h1>Online shopping simplified</h1>
@@ -21,8 +21,8 @@ export default function HomeIndex() {
                         <a>Start shopping</a>
                     </Link>
                 </div>
-                <img src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_700/v1607770215/react-tutorial/supermarket/home.jpg" width="350" height="240" className="rounded home-image" alt="" />
+                <img src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto,w_700/v1607770215/react-tutorial/supermarket/home.jpg" className="rounded home-image" alt="" />
             </div>
-        </>
+        </section>
     );
 }

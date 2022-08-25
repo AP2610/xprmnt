@@ -11,3 +11,8 @@
         font-weight: bold;
     }
 }
+
+@mixin logoFont {
+    font-family: 'Rubik Maze', cursive;
+    font-weight: 400;
+}

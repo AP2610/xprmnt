@@ -11,11 +11,11 @@ export default function ProductGrid(props) {
     const classes = clsx('products-layout', className);
 
     return (
-        <div className={classes}>
+        <section className={classes}>
             {children}
             <div className="products-grid">
                 {products && productsGrid}
             </div>
-        </div>
+        </section>
     )
 }
