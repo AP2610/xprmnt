@@ -1,0 +1,26 @@
+.product-details {
+    &-name {
+        margin-top: 0px;
+        max-width: 300px;
+    }
+
+    &-image {
+        background-color: white;
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    &-description {
+        display: flex;
+        flex-wrap: wrap;
+
+        button {
+            margin-left: auto;
+        }
+    }
+
+    &-additional-info {
+        display: flex;
+        gap: $gutter * 2;
+    }
+}

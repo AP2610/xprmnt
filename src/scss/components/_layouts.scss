@@ -9,10 +9,18 @@
 
 .about-layout img {
     max-height: 600px;
+
+    @media (max-width: 1024px) {
+        max-height: 300px;
+    }
 }
 
 .home-layout img {
     max-height: 400px;
+
+    @media (max-width: 1024px) {
+        max-height: 200px;
+    }
 }
 
 .about-layout,

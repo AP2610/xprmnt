@@ -8,12 +8,14 @@
 @import './components/navigation-bar';
 @import './components/tabs';
 @import './components/layouts';
-@import './components/products';
+@import './components/cart';
 @import './components/loader';
 @import './components/links';
 @import './components/categories';
 @import './components/footer';
 @import './components/homepage';
+@import './components/products/list-page';
+@import './components/products/details-page';
 
 :root {
     --white: #fff;
@@ -60,8 +62,9 @@ body {
     .content-container {
         flex-grow: 1;
         height: 100%;
-        margin: 0 auto;
+        margin-inline: auto;
         padding: $gutter * 4 $gutter;
         width: $max-width;
+        max-width: 100%;
     }
 }

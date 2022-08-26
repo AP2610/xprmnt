@@ -1,0 +1,111 @@
+.products-layout {
+    // Flex parent
+    .products-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $gutter;
+    }
+
+    // Flex child
+    .product {
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        border-top: 15px solid var(--accent-1);
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: $gutter;
+        position: relative;
+
+        .product-quantity-container {
+            background-color: white;
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            right: -10px;
+            top: -25px;
+    
+            .product-quantity {
+                background-color: var(--primary-1);
+                color: white;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: grid;
+                place-items: center;
+            }
+        }
+    }
+
+    // Product image
+    .product-image-container {
+        // background-color: black;
+        padding-block: $gutter;
+        text-align: center;
+        height: 200px;
+
+        .product-image {
+            border-radius: 20px;
+            height: 100%;
+            max-width: 150px;
+            transition: transform 180ms ease-out;
+
+            a {
+                display: block;
+            }
+        }
+
+    }
+    
+    // .product:nth-child(2n):hover .product-image {
+    //     transform: scale(1.01) rotateZ(2deg);
+    // }
+    
+    // .product:nth-child(2n + 1):hover .product-image {
+    //     transform: scale(1.01) rotateZ(-2deg);
+    // }
+
+    .product-info {
+        flex: 1;
+        padding-inline: $gutter;
+
+        &-name {
+            margin-top: 0;
+        }
+    
+        &-category {
+            text-transform: capitalize;
+        }
+
+        &-description {
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .product-add-to-cart {
+        margin-top: $gutter;
+
+        button {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width: 100%;
+        }
+    }
+    
+    .product-delete {
+        background-color: white;
+        padding: 5px 10px;
+        color: var(--accent-1);
+        border-color: var(--accent-2);
+        font-size: 14px;
+    }
+    
+    .product h3,
+    .product p {
+        margin: 0;
+    }
+}

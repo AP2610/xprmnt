@@ -8,6 +8,11 @@ module.exports = {
                 destination: '/home/',
                 permanent: true,
             },
+            {
+                source: '/categories/products/:productId',
+                destination: '/products/:productId',
+                permanent: true
+            }
         ];
     }
 };

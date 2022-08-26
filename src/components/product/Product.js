@@ -20,7 +20,7 @@ export default function Product(props) {
         <article className="product">
             <div className="product-image-container">
                 <Link href={`products/${product.id}`}>
-                    <a><img width="100" height="100" className="product-image" alt={product?.title} src={product?.image}/></a>
+                    <a><img className="product-image" alt={product?.title} src={product?.image}/></a>
                 </Link>
 
                 {productQuantity && 
@@ -31,18 +31,16 @@ export default function Product(props) {
             </div>
 
             <div className="product-info">
-                <h4 className="product-info-name">{product?.title}</h4>
-                <p className="product-info-rating">{product?.rating?.rate.toFixed(2)}</p>
-                <p className="product-info-category">{product?.category}</p>
+                <h4 className="product-info-name fw-600">{product?.title}</h4>
+                <p className="product-info-rating">reviews - {product?.rating?.rate.toFixed(2)}</p>
+                <p className="product-info-category fw-600">{product?.category}</p>
                 <p className="product-info-description">{product.description}</p>
             </div>
 
-            <div className="product-checkout">
-                <div>
-                    {productQuantity && <Button title="Remove from cart" outline className="product-delete" onClick={onProductDelete}>x</Button>}
-                </div>
+            <div className="product-add-to-cart">
+                {/* {productQuantity && <Button title="Remove from cart" outline className="product-delete" onClick={onProductDelete}>x</Button>} */}
 
-                <Button outline onClick={onProductAdd}>${product?.price.toFixed(2)}</Button>
+                <Button addToCart className="btn-accent" onClick={onProductAdd}>Add to cart</Button>
             </div>
         </article>
     );
