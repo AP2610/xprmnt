@@ -18,6 +18,12 @@
         gap: $gutter;
         position: relative;
 
+        &:hover {
+            .product-image {
+                transform: scale(1.01) rotateZ(2deg);
+            }
+        }
+
         .product-quantity-container {
             background-color: white;
             border-radius: 50%;
@@ -40,7 +46,6 @@
 
     // Product image
     .product-image-container {
-        // background-color: black;
         padding-block: $gutter;
         text-align: center;
         height: 200px;
@@ -55,16 +60,7 @@
                 display: block;
             }
         }
-
     }
-    
-    // .product:nth-child(2n):hover .product-image {
-    //     transform: scale(1.01) rotateZ(2deg);
-    // }
-    
-    // .product:nth-child(2n + 1):hover .product-image {
-    //     transform: scale(1.01) rotateZ(-2deg);
-    // }
 
     .product-info {
         flex: 1;

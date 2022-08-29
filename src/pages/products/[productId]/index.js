@@ -16,7 +16,8 @@ export default function ProductDetailsIndex() {
             {(productDetails) => (
                 <div className="details-details-description">
                     <p>{productDetails?.description}</p>
-                    <Button outline onClick={() => appContext.handleProductAdd(productDetails)}>${productDetails?.price}</Button>
+                    <p>${productDetails?.price?.toFixed(2)}</p>
+                    <Button onClick={() => appContext.handleProductAdd(productDetails)}>Add to cart</Button>
                 </div>
             )}
         </ProductDetailsLayout>
