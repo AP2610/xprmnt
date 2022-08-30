@@ -17,7 +17,7 @@ export default function ProductDetailsIndex() {
                 <div className="details-details-description">
                     <p>{productDetails?.description}</p>
                     <p>${productDetails?.price?.toFixed(2)}</p>
-                    <Button onClick={() => appContext.handleProductAdd(productDetails)}>Add to cart</Button>
+                    <Button defaultButton onClick={() => appContext.handleProductAdd(productDetails)}>Add to cart</Button>
                 </div>
             )}
         </ProductDetailsLayout>

@@ -13,9 +13,9 @@ export default function HomeIndex() {
         <section className="homepage">
             <div className="home-layout">
                 <div>
-                    <h1>Online shopping simplified</h1>
+                    <h1>Online shopping, simplified</h1>
                     <p>
-                        Order your groceries from <em>SuperM</em> with our easy to use app, and get your products delivered straight to your doorstep.
+                        Get the latest and greatest products from XPRMNT. From clothes, to electronics, find everything you need with our easy to use app.
                     </p>
                     <Link href="/products">
                         <a className="btn btn-default">Start shopping</a>

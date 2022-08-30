@@ -1,10 +1,15 @@
 .home-layout,
 .about-layout,
 .product-details-layout {
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: $gutter;
+}
+
+.products-layout {
+    color: var(--text-color);
 }
 
 .about-layout img {

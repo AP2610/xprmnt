@@ -4,6 +4,7 @@
 @import './components/typography';
 @import './components/grid';
 @import './components/ui-kit/buttons';
+@import './components/ui-kit/switch';
 @import './components/ui-kit/forms';
 @import './components/navigation-bar';
 @import './components/tabs';
@@ -21,32 +22,70 @@
     --white: #fff;
     --black: #000;
 
-    /* Primary colors*/
+    // Primary colors
     --primary-1: #E63946;
     --primary-2: #FE4A49;
-    --primary-3: #A8DADC;
-    --primary-4: #457B9D;
-    --primary-5: #1D3557;
+    --primary-3: #F5B700;
+    --primary-4: #FFC71F;
 
-    /* Neutral colors */
+    // Neutral colors
     --neutral-1: #312F2F;
     --neutral-2: #434343;
     --neutral-3: #94868b;
     --neutral-4: #d9cfd3;
     --neutral-5: #f0e6d1;
 
-    /* Accent-blue colors */
-    --accent-1: #F5B700;
-    --accent-2: #FFC71F;
-    --accent-3: #FFD147;
-    --accent-4: #FFDB70;
-    --accent-5: #FFE699;
+    // Accent colors
+    --accent-1: #FFDB70;
+    --accent-2: #FFE699;
+
+    // Background colors:
+    --bg-1: var(--neutral-5);
+    --bg-2: var(--white);
+
+    // Role colors
+    --site-background-color: var(--bg-1);
+    --navbar-background-color: var(--bg-2);
+    --footer-background-color: var(--bg-2);
+    --subnav-hover-background-color: var(--bg-1);
+    --product-card-background-color: var(--bg-2);
+    --nav-item-color: var(--neutral-1);
+    --logo-color: var(--neutral-1);
+    --headings-color: var(--neutral-1);
+    --text-color: var(--black);
+    --theme-icon-color: var(--neutral-1);
+    --theme-active-color: var(--primary-2);
+
+    &.dark-theme {
+        --primary-1: #b03b00;
+        --primary-2: #ff6417;
+        --primary-3: #460090;
+        --primary-4: #5c00bf;
+
+        --neutral-4: #6a00db;
+        --neutral-5: #380074;
+
+        // Background colors:
+        --bg-1: #162944;
+        --bg-2: #1D3557;
+
+        // Role colors
+        --site-background-color: var(--bg-1);
+        --navbar-background-color: var(--bg-2);
+        --subnav-hover-background-color: var(--bg-1);
+        --nav-item-color: var(--white);
+        --logo-color: var(--white);
+        --headings-color: var(--white);
+        --text-color: var(--white);
+        --product-card-background-color: #122f56;
+        --theme-icon-color: var(--white);
+    }
 }
 
 body {
-    background-color: var(--neutral-5);
+    background-color: var(--site-background-color);
     box-sizing: border-box;
-    // height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 

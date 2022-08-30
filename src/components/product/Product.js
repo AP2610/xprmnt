@@ -40,7 +40,7 @@ export default function Product(props) {
             <div className="product-add-to-cart">
                 {/* {productQuantity && <Button title="Remove from cart" outline className="product-delete" onClick={onProductDelete}>x</Button>} */}
 
-                <Button onClick={onProductAdd}>Add to cart</Button>
+                <Button defaultButton onClick={onProductAdd}>Add to cart</Button>
             </div>
         </article>
     );

@@ -1,11 +1,11 @@
 @mixin navItem {
-    text-decoration: none;
-    font-weight: normal;
-    color: var(--neutral-1);
+    color: var(--nav-item-color);
     display: inline-block;
-    text-align: center;
-    padding: 13px 20px;
+    font-weight: normal;
     min-width: 75px;
+    padding: 13px 20px;
+    text-align: center;
+    text-decoration: none;
 
     &.active {
         font-weight: bold;

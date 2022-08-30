@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 
 export default function Button(props) {
-    const {className, children, disabled, outline, addToCart, ...rest} = props;
+    const {className, children, disabled, outline, defaultButton, ...rest} = props;
     const classes = clsx('btn', className, {
-        'btn-default': !outline && !className?.includes('link') && !addToCart,
+        'btn-default': defaultButton,
         'btn-outline': outline,
         'disabled': disabled
     });

@@ -3,6 +3,7 @@ import { useState, useEffect, createContext } from 'react';
 export const AppContext = createContext();
 
 export default function AppProvider(props) {
+    const [theme, setTheme] = useState('');
     const [cart, setCart] = useState(() => {
         let savedCart = [];
         try {
@@ -12,6 +13,28 @@ export default function AppProvider(props) {
         }
         return savedCart;
     });
+    const isDarkMode = theme === 'dark';
+
+    
+    useEffect(() => {
+        // Second part needs to be wrapped in parentheses otherwise it does not short circuit with the nullish coalescing operator.
+        const preferredTheme = localStorage.getItem('theme') ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light');
+        setTheme(preferredTheme);
+    }, [])
+
+    // Set class based on theme.
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark-theme');
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+        }
+    }, [theme]);
+
+    // Set user preferred theme to local storage.
+    useEffect(() => {
+        if (theme) localStorage.setItem('theme', theme);
+    }, [theme])
 
     useEffect(() => {
         if (cart && cart.length) {
@@ -45,11 +68,10 @@ export default function AppProvider(props) {
         setCart(updatedCart);
     };
 
+    const handleThemeToggle = () => setTheme(prevState => prevState === 'dark' ? 'light' : 'dark');
+
     const numberOfProducts = cart.reduce((total, currentProduct) => total + currentProduct.quantity, 0);
     const cartTotalValue = cart.reduce((total, currentProduct) => total + currentProduct.quantity * currentProduct.price, 0).toFixed(2);
-
-    // Debugging
-    // useEffect(() => console.log('AppContext-cart: ', cart), [cart]);
 
     const value = {
         cart,
@@ -57,6 +79,8 @@ export default function AppProvider(props) {
         cartTotalValue,
         handleProductAdd,
         handleProductDelete,
+        handleThemeToggle,
+        isDarkMode
     };
 
     return <AppContext.Provider value={value}>{props.children}</AppContext.Provider>;

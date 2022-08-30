@@ -17,7 +17,7 @@ export default function NavItem(props) {
         <li className={className}>
             {navItem?.subNav?.length ? (
                 <>
-                    <Button 
+                    <Button
                         className="btn-link btn-dropdown" 
                         type="button" 
                         aria-haspopup="menu" 

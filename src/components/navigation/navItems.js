@@ -19,6 +19,6 @@ export const navItems = [
         name: 'Cart',
         url: '/cart',
         showNumberOfProducts: true,
-        additionalLinkClasses: 'nav-cart btn btn-accent'
+        additionalLinkClasses: 'nav-cart btn btn-default'
     }
 ]

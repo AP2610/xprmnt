@@ -1,6 +1,6 @@
 .navbar {
     align-items: center;
-    background-color: var(--white);
+    background-color: var(--navbar-background-color);
     box-shadow: 0px 3px 7px 0px rgb(0 0 0 / 7%), 0px -3px 7px 0px rgb(0 0 0 / 7%);
     display: flex;
     justify-content: space-between;
@@ -9,7 +9,7 @@
     .nav-logo {
         @include logoFont;
         text-decoration: none;
-        color: initial;
+        color: var(--logo-color);
         transition: color .2s ease-in-out;
 
         &:hover {
@@ -22,11 +22,17 @@
         }
     }
 
+    .theme-toggle-container {
+        color: var(--theme-icon-color);
+        margin-left: auto;
+    }
+
     .nav-list {
         list-style-type: none;
         margin: 0;
         overflow: hidden;
         text-align: center;
+        padding: 0;
 
         .nav-item {
             display: inline-block;
@@ -35,6 +41,7 @@
 
     .nav-cart {
         color: var(--white);
+        font-weight: 600;
         text-align: center;
         padding: $gutter/2 $gutter;
         transition: background-color 0.2s ease-in-out;
@@ -60,7 +67,7 @@
     }
 
     .sub-nav-list {
-        background: white;
+        background: var(--navbar-background-color);
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
         box-shadow: 0px 3px 7px 0px rgb(0 0 0 / 7%);
@@ -77,7 +84,7 @@
             transition: background-color .2s ease-in-out;
             
             &:hover {
-                background-color: var(--neutral-5);
+                background-color: var(--subnav-hover-background-color);
             }
 
             &:last-child {

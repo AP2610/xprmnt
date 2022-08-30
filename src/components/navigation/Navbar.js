@@ -11,22 +11,19 @@ import NavItem from './NavItem';
 
 // Other
 import { navItems } from './navItems';
+import { FaMoon, FaSun } from 'react-icons/fa';
+import Button from '../ui-elements/Button';
+import Input from '../ui-elements/Input';
+import Switch from '../ui-elements/Switch';
 
 export default function Navbar() {
     const [navigationItems, setNavigationItems] = useState(navItems);
-    const { numberOfProducts } = useContext(AppContext);
+    const { numberOfProducts, handleThemeToggle, isDarkMode } = useContext(AppContext);
     const { request: getRequest } = useFetch('https://fakestoreapi.com/products');
 
     useEffect(() => {
         getRequest('/categories')
             .then(data => {
-                const subNavData = data.map(dataItem => {
-                    return { 
-                        name: dataItem, 
-                        url: `/${dataItem.replace(/\s/, '-').replace(/[,.']/g, '')}` 
-                    }
-                });
-
                 const updatedNavigationItems = navigationItems.map(item => {
                     if (item.name.toLowerCase() === 'categories') {
                         return {
@@ -53,11 +50,17 @@ export default function Navbar() {
         return <NavItem key={index} navItem={item} cartQuantity={numberOfProducts} className="nav-item" />
     });
 
+    const themeIcon = isDarkMode ? <FaSun /> : <FaMoon />;
+
     return (
         <nav className="navbar">
             <Link href="/">
                 <a className="nav-logo fs-8">XPRMNT</a>
             </Link>
+
+            <div className="theme-toggle-container">
+                <Switch checked={isDarkMode} onSwitchToggle={handleThemeToggle}>{themeIcon}</Switch>
+            </div>
 
             <ul className="nav-list">
                 {navigationItems && navigationLinks}

@@ -58,7 +58,7 @@ export default function CartIndex() {
                     <tr>
                         <th colSpan="2"></th>
                         <th className="cart-highlight">Total</th>
-                        <th className="cart-highlight">${cartTotalValue}</th>
+                        <th colSpan="3" className="cart-highlight">${cartTotalValue}</th>
                     </tr>
                 </tfoot>
             </table>
