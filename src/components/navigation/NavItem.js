@@ -5,21 +5,27 @@ import Button from '../../components/ui-elements/Button';
 
 // Hooks
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+
+// Packages
+import clsx from 'clsx';
 
 export default function NavItem(props) {
     const [isHovered, setIsHovered] = useState(false);
+    const router = useRouter()
     const { navItem, cartQuantity, className } = props;
-
+    const isActiveTab = router.pathname === navItem.url || router.asPath.includes(navItem.url);
+    const listItemClasses = clsx(className, { 'active-tab': isActiveTab })
+    
     const handleNavItemHover = () => setIsHovered(!isHovered);
-    // Add active navigation link logic on the anchor element
 
     return (
-        <li className={className}>
+        <li className={listItemClasses}>
             {navItem?.subNav?.length ? (
                 <>
                     <Button
                         className="btn-link btn-dropdown" 
-                        type="button" 
+                        type="button"
                         aria-haspopup="menu" 
                         aria-expanded={isHovered}
                     >
@@ -29,7 +35,7 @@ export default function NavItem(props) {
                 </>
             ) : (
                 <Link href={navItem.url}>
-                    <a className={navItem?.additionalLinkClasses && navItem.additionalLinkClasses}>{navItem.name} {navItem?.showNumberOfProducts && `(${cartQuantity})`}</a>
+                    <a className={navItem?.additionalLinkClasses}>{navItem.name} {navItem?.showNumberOfProducts && `(${cartQuantity})`}</a>
                 </Link>
             )}
         </li>

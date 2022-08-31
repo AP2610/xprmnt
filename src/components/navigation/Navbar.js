@@ -8,13 +8,11 @@ import { AppContext } from '../../common/context/AppContext';
 // Components
 import Link from 'next/link';
 import NavItem from './NavItem';
+import Switch from '../ui-elements/Switch';
 
 // Other
 import { navItems } from './navItems';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import Button from '../ui-elements/Button';
-import Input from '../ui-elements/Input';
-import Switch from '../ui-elements/Switch';
 
 export default function Navbar() {
     const [navigationItems, setNavigationItems] = useState(navItems);

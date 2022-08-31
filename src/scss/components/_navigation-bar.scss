@@ -41,7 +41,6 @@
 
     .nav-cart {
         color: var(--white);
-        font-weight: 600;
         text-align: center;
         padding: $gutter/2 $gutter;
         transition: background-color 0.2s ease-in-out;
@@ -76,7 +75,7 @@
         padding-left: 0;
         position: fixed;
         text-align: left;
-        top: 84px;
+        top: 86px;
         z-index: 100;
         
         .sub-nav-item {
@@ -97,5 +96,19 @@
                 text-align: left;
             }
         }
+    }
+}
+
+// Active tab styling
+.nav-item.active-tab {
+    > a:not(.nav-cart),
+    button,
+    .sub-nav-item.active-tab a {
+        color: var(--primary-2);
+        font-weight: 600;
+    }
+
+    .nav-cart {
+        font-weight: 600;
     }
 }
