@@ -37,7 +37,6 @@
 
         .product-quantity-container {
             background-color: white;
-            border-radius: 50%;
             padding: 5px;
             position: absolute;
             right: -10px;
@@ -46,14 +45,24 @@
             .product-quantity {
                 background-color: var(--primary-1);
                 color: white;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
                 display: grid;
+                height: 40px;
                 place-items: center;
+                width: 40px;
+            }
+        }
+
+        &-price {
+            left: 0px;
+            top: 0px;
+            position: absolute;
+
+            .badge {
+                border-bottom-right-radius: 6px;
             }
         }
     }
+
 
     // Product image
     .product-image-container {

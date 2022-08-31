@@ -1,6 +1,7 @@
 // Components
 import Button from '../ui-elements/Button';
 import Link from 'next/link';
+import Badge from '../badge/Badge';
 
 // Hooks
 import { useContext } from 'react';
@@ -14,7 +15,7 @@ export default function Product(props) {
 
     const productQuantity = appContext.cart.find(cartProduct => cartProduct.id === product.id)?.quantity;
     const onProductAdd = () => appContext.handleProductAdd(product);
-    const onProductDelete = () => appContext.handleProductDelete(product.id);
+    // const onProductDelete = () => appContext.handleProductDelete(product.id);
 
     return (
         <article className="product">
@@ -24,10 +25,14 @@ export default function Product(props) {
                 </Link>
 
                 {productQuantity && 
-                    <div className="product-quantity-container">
-                        <div className="product-quantity">{productQuantity}</div>
-                    </div>
+                    <Badge rounded className="product-quantity-container">
+                        <Badge rounded centerItems removeDefaultClass className="product-quantity">{productQuantity}</Badge>
+                    </Badge>
                 }
+            </div>
+
+            <div className="product-price">
+                <Badge defaultBackground>${product?.price.toFixed(2)}</Badge>
             </div>
 
             <div className="product-info">
