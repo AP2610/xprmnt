@@ -1,9 +1,21 @@
 .products-layout {
     // Flex parent
     .products-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $gutter;
+        display: grid;
+        grid-gap: $gutter;
+        grid-template-columns: 1fr;
+
+        @include media-breakpoint-up(640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include media-breakpoint-up(xl) {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 
     // Flex child

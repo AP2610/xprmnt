@@ -1,3 +1,5 @@
+@import "./breakpoints";
+
 @mixin navItem {
     color: var(--nav-item-color);
     display: inline-block;
@@ -16,3 +18,34 @@
     font-family: 'Rubik Maze', cursive;
     font-weight: 400;
 }
+
+// When screen is $breakpointSize wide or more - Mobile first
+@mixin media-breakpoint-up($breakpointNameOrSize) {
+    $breakpointSize: map-get($grid-breakpoints , $breakpointNameOrSize);
+
+    @if $breakpointSize {
+        @media (min-width: $breakpointSize) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $breakpointNameOrSize) {
+            @content;
+        }
+    }
+}
+
+// When screen is $breakpointSize wide or less - Desktop first
+@mixin media-breakpoint-down($breakpointNameOrSize) {
+    $breakpointSize: map-get($grid-breakpoints , $breakpointNameOrSize);
+
+    @if $breakpointSize {
+        @media (max-width: $breakpointSize) {
+            @content;
+        }
+    } @else {
+        @media (max-width: $breakpointNameOrSize) {
+            @content;
+        }
+    }
+}
+
