@@ -53,7 +53,11 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <Link href="/">
-                <a className="nav-logo fs-8">XPRMNT</a>
+                <a className="nav-logo fs-3">
+                    <div>XPRMNT</div>
+                    <div>XPRMNT</div>
+                    <div>XPRMNT</div>
+                </a>
             </Link>
 
             <div className="theme-toggle-container">

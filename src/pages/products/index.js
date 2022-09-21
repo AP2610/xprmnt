@@ -6,9 +6,11 @@ import Loader from '../../components/ui-elements/Loader';
 import ProductGrid from '../../components/product/ProductGrid';
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const response = await fetch('https://fakestoreapi.com/products');
+    console.log('response :', response);
     const products = await response.json();
+    console.log('products :', products);
 
     return {
         props: { products }

@@ -1,5 +1,4 @@
 .products-layout {
-    // Flex parent
     .products-grid {
         display: grid;
         grid-gap: $gutter;
@@ -18,7 +17,6 @@
         }
     }
 
-    // Flex child
     .product {
         background-color: var(--product-card-background-color);
         border-radius: 6px;
@@ -59,6 +57,7 @@
 
             .badge {
                 border-bottom-right-radius: 6px;
+                border-top-left-radius: 6px;
             }
         }
     }
@@ -111,12 +110,26 @@
             width: 100%;
         }
     }
+
+    .product-quantity-selector {
+        display: flex; 
+
+        .selected-quantity {
+            min-width: 150px;
+            text-align: center;
+            margin: auto;
+        }
+
+        button {
+            border-radius: 0;
+        }
+    }
     
     .product-delete {
         background-color: white;
         padding: 5px 10px;
-        color: var(--primary-3);
-        border-color: var(--primary-4);
+        color: var(--secondary-1);
+        border-color: var(--secondary-2);
         font-size: 14px;
     }
     

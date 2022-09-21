@@ -13,7 +13,7 @@
     color: var(--white);
     background-color: var(--primary-1);
 
-    &:hover {
+    &:hover:enabled {
         background-color: var(--primary-2);
         text-decoration: none;
     }
@@ -21,14 +21,14 @@
 
 .btn-outline {
     color: var(--white);
-    background-color: var(--primary-4);
-    border: var(--primary-5) 2px solid;
+    background-color: var(--secondary-2);
+    border: var(--secondary-3) 2px solid;
     box-shadow: 1px 1px 7px #c4c4c4;
     padding: 8px 25px;
     border-radius: 10px;
 
     &:hover {
-        background-color: var(--primary-5);
+        background-color: var(--secondary-3);
         text-decoration: none;
     }
 }
@@ -48,7 +48,7 @@
 .btn-outline {
     &:active {
         color: var(--text-color);
-        background-color: var(--primary-4);
+        background-color: var(--secondary-2);
     }
 }
 
@@ -56,24 +56,24 @@
 .btn-outline {
     &[disabled],
     .disabled {
-        color: var(--primary-4);
-        background-color: var(--primary-5);
-        cursor: default;
+        color: var(--disabled-button-color);
+        filter: grayscale(.5);
+        cursor: not-allowed;
     }
 }
 
 .btn-accent {
     color: var(--white);
-    background-color: var(--primary-3);
+    background-color: var(--secondary-1);
     
     &:hover {
         color: var(--white);
-        background-color: var(--primary-4);
+        background-color: var(--secondary-2);
         text-decoration: none;
     }
 
     &:active {
-        color: var(--primary-3);
+        color: var(--secondary-1);
         background-color: var(--accent-1);
     }
 
@@ -82,5 +82,22 @@
         color: var(--accent-1);
         background-color: var(--accent-2);
         cursor: default;
+    }
+}
+
+.btn-decrease,
+.btn-increase {
+    color: var(--text-color);
+    background-color: var(--secondary-2);
+
+    &:hover:enabled {
+        background-color: var(--secondary-1);
+    }
+
+    &[disabled],
+    &.disabled {
+        color: var(--text-color);
+        cursor: not-allowed;
+        filter: grayscale(.7);
     }
 }

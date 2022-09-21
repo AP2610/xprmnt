@@ -20,6 +20,10 @@
         &:active {
             color: var(--primary-1);
         }
+
+        div:nth-child(2) {
+            margin-block: -9px;
+        }
     }
 
     .theme-toggle-container {
@@ -109,7 +113,7 @@
     }
 
     .nav-cart {
-        background-color: var(--primary-4);
+        background-color: var(--secondary-2);
         font-weight: 600;
     }
 }

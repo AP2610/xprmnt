@@ -27,19 +27,19 @@
     // Primary colors
     --primary-1: #E63946;
     --primary-2: #FE4A49;
-    --primary-3: #F5B700;
-    --primary-4: #FFC71F;
-
+    
+    // Seconday colors
+    --secondary-1: #F5B700;
+    --secondary-2: #FFC71F;
+    --secondary-3: #FFDB70;
+    --secondary-4: #FFE699;
+    
     // Neutral colors
     --neutral-1: #312F2F;
     --neutral-2: #434343;
     --neutral-3: #94868b;
     --neutral-4: #d9cfd3;
     --neutral-5: #f0e6d1;
-
-    // Accent colors
-    --accent-1: #FFDB70;
-    --accent-2: #FFE699;
 
     // Background colors:
     --bg-1: var(--neutral-5);
@@ -57,12 +57,16 @@
     --text-color: var(--black);
     --theme-icon-color: var(--neutral-1);
     --theme-active-color: var(--primary-2);
+    --disabled-button-color: #d9cfd3;
 
     &.dark-theme {
+        // Primary colors
         --primary-1: #b03b00;
         --primary-2: #ff6417;
-        --primary-3: #460090;
-        --primary-4: #5c00bf;
+
+        // Secondary colors
+        --secondary-1: #460090;
+        --secondary-2: #5c00bf;
 
         --neutral-4: #6a00db;
         --neutral-5: #380074;

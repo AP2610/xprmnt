@@ -8,22 +8,22 @@ import { useRouter } from "next/router";
 import useFetch from "../../common/hooks/useFetch";
 
 export default function ProductDetailsLayout(props) {
+    console.log('props :', props);
     const [productDetails, setProductDetails] = useState({});
     const router = useRouter();
     const { query } = router;
-    const BASE_URL = 'https://fakestoreapi.com/';
-    const ENDPOINT = `products/${query.productId}`;
-    const { request: getRequest, isLoading: getIsLoading } = useFetch(BASE_URL);
+    // const BASE_URL = 'https://fakestoreapi.com/';
+    // const ENDPOINT = `products/${query.productId}`;
+    // const { request: getRequest, isLoading: getIsLoading } = useFetch(BASE_URL);
 
     useEffect(() => {
-        getRequest(ENDPOINT)
-            .then((data) => setProductDetails(data))
-            .catch((error) => console.log(error));
-    }, [router.isReady]);
+        console.log('productDetails: ', productDetails);
+        setProductDetails(props.product)
+    }, []);
 
-    if (getIsLoading) {
-        return <Loader />;
-    }
+    // if (getIsLoading) {
+    //     return <Loader />;
+    // }
 
     return (
         <div className="product-details-layout">

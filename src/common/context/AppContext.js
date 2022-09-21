@@ -42,7 +42,7 @@ export default function AppProvider(props) {
         }
     }, [cart]);
 
-    const handleProductAdd = (newProduct) => {
+    const handleProductAdd = (newProduct, quantity) => {
         const existingProduct = cart.find((product) => product.id === newProduct.id);
 
         if (existingProduct) {
@@ -50,7 +50,7 @@ export default function AppProvider(props) {
                 if (product.id === newProduct.id) {
                     return {
                         ...product,
-                        quantity: product.quantity + 1,
+                        quantity: product.quantity + quantity,
                     };
                 }
                 return product;
@@ -58,7 +58,7 @@ export default function AppProvider(props) {
 
             setCart(updatedCart);
         } else {
-            const productToAdd = { ...newProduct, quantity: 1 };
+            const productToAdd = { ...newProduct, quantity };
             setCart([...cart, productToAdd]);
         }
     };
