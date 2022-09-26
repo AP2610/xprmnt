@@ -8,6 +8,7 @@
         "@testing-library/user-event": "^12.8.3",
         "and": "^0.0.3",
         "clsx": "^1.1.1",
+        "firebase": "^9.10.0",
         "mapbox-gl": "^2.9.2",
         "next": "^12.2.5",
         "node-sass": "^6.0.1",

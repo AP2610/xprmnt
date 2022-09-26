@@ -1,29 +1,30 @@
 // Components
-import Link from "next/link";
-import Loader from "../ui-elements/Loader";
+import Link from 'next/link';
+import Loader from '../ui-elements/Loader';
 
 // Hooks
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import useFetch from "../../common/hooks/useFetch";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import usePageLoading from '../../common/hooks/usePageLoading';
 
+/**
+ * @function ProductDetailsLayout - Decorates the product details page. Creates tab navigation for product details. Handles loading state.
+ * @param {Object} props
+ * @returns 
+ */
 export default function ProductDetailsLayout(props) {
-    console.log('props :', props);
     const [productDetails, setProductDetails] = useState({});
+    const { loading: requestIsLoading } = usePageLoading();
     const router = useRouter();
     const { query } = router;
-    // const BASE_URL = 'https://fakestoreapi.com/';
-    // const ENDPOINT = `products/${query.productId}`;
-    // const { request: getRequest, isLoading: getIsLoading } = useFetch(BASE_URL);
 
     useEffect(() => {
-        console.log('productDetails: ', productDetails);
-        setProductDetails(props.product)
+        setProductDetails(props.product);
     }, []);
 
-    // if (getIsLoading) {
-    //     return <Loader />;
-    // }
+    if (requestIsLoading) {
+        return <Loader />
+    }
 
     return (
         <div className="product-details-layout">
@@ -53,7 +54,7 @@ export default function ProductDetailsLayout(props) {
                     </ul>
                 </div>
 
-                {props.children(productDetails)}
+                {props.children}
             </div>
         </div>
     );

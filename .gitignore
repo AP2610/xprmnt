@@ -29,3 +29,5 @@ src/js/utilities/ignored/
 src/js/utilities/utilities.js
 src/scss/components/_grid.scss
 src/scss/components/_typography.scss
+
+/firebase
