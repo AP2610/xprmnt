@@ -5,12 +5,12 @@ import usePageLoading from '../../common/hooks/usePageLoading';
 import Loader from '../../components/ui-elements/Loader';
 import ProductGrid from '../../components/product/ProductGrid';
 
+// Helpers
+import { getAllProducts } from '../../lib/fetchProducts';
+
 
 export async function getStaticProps() {
-    const response = await fetch('https://fakestoreapi.com/products');
-    console.log('response :', response);
-    const products = await response.json();
-    console.log('products :', products);
+    const products = await getAllProducts();
 
     return {
         props: { products }
