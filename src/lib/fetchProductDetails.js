@@ -9,7 +9,12 @@ export const getProductDetails = async (productId) => {
         if (!response.ok) throw new Error(`The request failed with the status ${response.statusText}`);
 
         const product = await response.json();
-        if (!product) throw new Error(`Could not retrieve product details for product with ID - ${productId} - ${product}`);
+        if (!product) {
+            // Not really needed when used in combination with getStaticPaths with 'fallback: false', but leaving it here for educational purposes.
+            return {
+                notFound: true
+            }
+        }
 
         return {
             props: { product }
@@ -30,7 +35,11 @@ export const getProductPaths = async () => {
         if (!response.ok) throw new Error(`The request failed with the status ${response.statusText}`);
 
         const products = await response.json();
-        if (!products) throw new Error(`No products were returned - ${products}`);
+        if (!products) {
+            return {
+                notFound: true
+            }
+        }
 
         const paths = products.map(product => {
             return {

@@ -31,3 +31,4 @@ src/scss/components/_grid.scss
 src/scss/components/_typography.scss
 
 /firebase
+src/pages/api/auth/[...nextauth].js

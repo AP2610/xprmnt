@@ -8,8 +8,8 @@ import ProductGrid from '../../components/product/ProductGrid';
 // Helpers
 import { getAllProducts } from '../../lib/fetchProducts';
 
-
-export async function getStaticProps() {
+// Using getServerSideProps instead of getStaticPaths so that in the future when logged in users create there own products, products will be refreshed at request time.
+export async function getServerSideProps() {
     const products = await getAllProducts();
 
     return {
