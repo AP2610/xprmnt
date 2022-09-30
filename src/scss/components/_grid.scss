@@ -1,2 +1,17 @@
 $gutter: 20px;
 $max-width: 1400px;
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    .content-container {
+        flex-grow: 1;
+        margin-inline: auto;
+        padding: $gutter * 2 $gutter;
+        width: inherit;
+        max-width: $max-width;
+    }
+}

@@ -91,25 +91,5 @@
 body {
     background-color: var(--site-background-color);
     box-sizing: border-box;
-    min-height: 100vh;
     margin: 0;
-}
-
-#__next {
-    height: 100%;
-}
-
-.page-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    .content-container {
-        flex-grow: 1;
-        height: 100%;
-        margin-inline: auto;
-        padding: $gutter * 2 $gutter;
-        width: $max-width;
-        max-width: 100%;
-    }
 }
