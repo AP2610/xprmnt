@@ -3,6 +3,7 @@
         display: grid;
         grid-gap: $gutter;
         grid-template-columns: 1fr;
+        margin-block: $gutter * 2;
 
         @include media-breakpoint-up(640px) {
             grid-template-columns: repeat(2, 1fr);

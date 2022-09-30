@@ -1,0 +1,57 @@
+$root-font-size: 16px;
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: $root-font-size;
+}
+
+$font-sizes: (
+    1: $root-font-size,
+    2: 18px,
+    3: 20px,
+    4: 24px,
+    5: 28px,
+    6: 36px,
+    7: 42px,
+    8: 50px,
+    9: 64px
+);
+
+$font-weights: 300, 400, 500, 600;
+
+@each $value, $size in $font-sizes {
+    .fs-#{$value} {
+        font-size: $size;
+    }
+}
+
+@each $weight in $font-weights {
+    .fw-#{$weight} {
+        font-weight: $weight;
+    }
+}
+
+h1 {
+    font-size: 50px;
+    margin: $gutter 0;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+h3 {
+    font-size: 36px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: $root-font-size;
+}

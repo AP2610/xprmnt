@@ -33,7 +33,7 @@
 
     .nav-list {
         list-style-type: none;
-        margin: 0;
+        margin: 0 0 0 $gutter * 2;
         overflow: hidden;
         text-align: center;
         padding: 0;
@@ -45,8 +45,9 @@
 
     .nav-cart {
         color: var(--white);
-        text-align: center;
         padding: $gutter/2 $gutter;
+        margin-left: $gutter * 2;
+        text-align: center;
         transition: background-color 0.2s ease-in-out;
     }
 }
@@ -79,7 +80,7 @@
         padding-left: 0;
         position: fixed;
         text-align: left;
-        top: 86px;
+        top: 90px;
         z-index: 100;
         
         .sub-nav-item {
